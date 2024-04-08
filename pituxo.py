@@ -8,12 +8,16 @@ pygame.init()
 size = ()
 screen = pygame.display.set_mode((410, 410), pygame.SCALED)
 pygame.display.set_caption('Pituxo')
+
+background = pygame.Surface(screen.get_size()).convert()
+background.fill("purple")
+
 clock = pygame.time.Clock()
-running = True
 dt = 0
 
 player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
 
+running = True
 while running:
     # Process input
     # pygame.QUIT event means the user clicked X to close your window
@@ -23,7 +27,7 @@ while running:
 
     # Update game state
     # fill the screen with a color to wipe away anything from last frame
-    screen.fill("purple")
+    background.fill("purple")
 
     pygame.draw.circle(screen, "red", player_pos, 10)
 
